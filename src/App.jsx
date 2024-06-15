@@ -1,10 +1,7 @@
+import "./App.css";
 
-
-import './App.css'
-import Gallery from './Gallery';
-
-import { getImageUrl  } from './utils';
-//your first ComPonent 
+import "./index.css";
+//your first ComPonent
 // function Profile() {
 //  return (
 // <img src= "https://i.imgur.com/MK3eW3As.jpg"
@@ -13,99 +10,65 @@ import { getImageUrl  } from './utils';
 
 //  );
 // }
-const person = 
-{
-  name : 'greo_ri_o Just a Username',
-  theme:
-  {
-    backgroundColor : 'black',color:'pink'
-    
 
-  }
-};
-
-function card ({children})
-{
-  return (
-    <div className = "card">
-{children}
-    </div>
-  )
-}
-function Profile ()
-{
-  return (
-   < card
-   >
-   
-   <Avatar
-      size={100}
-      person={
-        {
-          name :'From Person In Profile',
-          imageId:'123'
-        }
-      }
-      />
-
-   </card>
-
-      
-
-    
-  );
-}
-
-
-function Avatar ({person,size})
-{
-
-
-
-  return  (
-
-    
-<>
-{/* person =Prototype.name; */}
-
-  <img
-  className='avatar'
-  src={getImageUrl(person)}
-  alt={person.name}
-  width={size}
-height={size}
-   />  
-  
-
-  
-
-   </>
-  
-  );
-
-}
 // conditional Rendering
-function item({name, isPacked})
-{
-  return(
-    <li className='item'>
-{name} {isPacked && 'x'}
-    </li>
+
+function Header() {
+  const style = {};
+
+  return (
+    <header className="header">
+      <h1 style={style}> Fast React Pizza Co.</h1>
+    </header>
   );
 }
-function Pac
-
-function App ()
-{
-//   return (
-// <Gallery/>
-//   );
-
-return (
-<>
-<Profile></Profile>
-</>
-);
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza
+        name="TEST_name"
+        ingredients="ingredientsTest"
+        img="/public/School/dev.jpg"
+      />
+        <Pizza
+        name="TEST_name_2"
+        ingredients="ingredientsTest"
+        img="/public/School/test.png"
+      ></Pizza>
+    </main>
+  );
+}
+function Footer() {
+  return (
+    <div className="footer">
+      <h2> This Is Footer </h2>
+    </div>
+  );
 }
 
-export default App
+function Pizza(props) {
+  return (
+    <div>
+      <img src={props.img} alt={props.name} />
+      <h2> {props.name}</h2>
+      <p>{props.ingredients}</p>
+    </div>
+  );
+}
+function App() {
+  //   return (
+  // <Gallery/>
+  //   );
+
+  return (
+    <div className="container">
+      <Header></Header>
+
+      <Menu></Menu>
+      <Footer></Footer>
+    </div>
+  );
+}
+
+export default App;
