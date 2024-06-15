@@ -1,6 +1,7 @@
 import "./App.css";
 
 import "./index.css";
+import { pizzaData } from "./data";
 //your first ComPonent
 // function Profile() {
 //  return (
@@ -26,16 +27,11 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="TEST_name"
-        ingredients="ingredientsTest"
-        img="/public/School/dev.jpg"
-      />
-        <Pizza
-        name="TEST_name_2"
-        ingredients="ingredientsTest"
-        img="/public/School/test.png"
-      ></Pizza>
+      <ul>
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObject={pizza} key={pizza.name}></Pizza>
+        ))}
+      </ul>
     </main>
   );
 }
@@ -50,9 +46,9 @@ function Footer() {
 function Pizza(props) {
   return (
     <div>
-      <img src={props.img} alt={props.name} />
-      <h2> {props.name}</h2>
-      <p>{props.ingredients}</p>
+      <img src={props.pizzaObject.img} alt={props.pizzaObject.name} />
+      <h2> {props.pizzaObject.name}</h2>
+      <p>{props.pizzaObject.ingredients}</p>
     </div>
   );
 }
