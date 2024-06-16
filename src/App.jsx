@@ -24,14 +24,20 @@ function Header() {
   );
 }
 function Menu() {
+  const pizzaDATA = pizzaData;
+  const numberPizza = pizzaDATA.length;
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul>
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObject={pizza} key={pizza.name}></Pizza>
-        ))}
-      </ul>
+      {numberPizza > 0 ? (
+        <ul>
+          {pizzaDATA.map((pizza) => (
+            <Pizza pizzaObject={pizza} key={pizza.name}></Pizza>
+          ))}
+        </ul>
+      ) : (
+        <p>No pizzas available.</p>
+      )}
     </main>
   );
 }
