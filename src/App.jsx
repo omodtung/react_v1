@@ -50,6 +50,9 @@ function Footer() {
 }
 
 function Pizza(props) {
+  if (props.pizzaObject.soldOut) {
+    return null;
+  }
   return (
     <div>
       <img src={props.pizzaObject.img} alt={props.pizzaObject.name} />

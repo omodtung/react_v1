@@ -13,4 +13,18 @@ export const pizzaData = [
     img: "/public/School/Mac.png",
     soldOut: false,
   },
+  {
+    name: "test_name_2",
+    ingredients: "Creola Katherine Johnson",
+    price: "mathematician",
+    img: "/public/School/Mac.png",
+    soldOut: true,
+  },
+  {
+    name: "test_name_3",
+    ingredients: "Creola Katherine Johnson",
+    price: "mathematician",
+    img: "/public/School/Mac.png",
+    soldOut: false,
+  },
 ];
