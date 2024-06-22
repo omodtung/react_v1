@@ -42,9 +42,28 @@ function Menu() {
   );
 }
 function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 2;
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
   return (
-    <div className="footer">
-      <h2> This Is Footer </h2>
+    <footer>
+      {isOpen ? (
+        <Order closeHour={closeHour} openHour={openHour}></Order>
+      ) : (
+        <p> we are happy for this</p>
+      )}
+    </footer>
+  );
+}
+
+function Order({ closeHour, openHour }) {
+  return (
+    <div className="order">
+      <p>
+        we are open util {closeHour} and Open At {openHour}
+      </p>
     </div>
   );
 }
